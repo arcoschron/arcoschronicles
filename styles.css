@@ -1,156 +1,163 @@
-/* ==============================
-   Базовые стили (мобильная версия)
-   ============================== */
+/* ====== Общие стили ====== */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     color: #333;
-    background-color: #f9f9f9;
+    line-height: 1.6;
 }
 
-.container {
+/* ====== Стили меню ====== */
+.menu {
+    background-color: #333;
+    padding: 10px;
+}
+
+.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.menu-list li {
+    margin: 5px;
+}
+
+.menu-list a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-list a:hover {
+    background-color: #555;
+}
+
+/* ====== Стили для меню на мобильных устройствах ====== */
+@media (max-width: 768px) {
+    .menu {
+        text-align: center;
+    }
+
+    .menu-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-list li {
+        width: 100%;
+        margin: 0;
+    }
+
+    .menu-list a {
+        display: block;
+        width: 90%;
+        text-align: center;
+        margin: 5px auto;
+        padding: 15px;
+        font-size: 1rem;
+    }
+}
+
+/* ====== Стили карточек ====== */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.card {
+    flex: 1 1 calc(33.33% - 20px);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5%;
-    box-sizing: border-box;
+    height: 200px;
+    object-fit: cover;
 }
 
-/* Кнопки */
-.button {
-    display: inline-block;
+.card h3 {
+    font-size: 1.2rem;
+    margin: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 0.9rem;
+    margin: 10px;
+    color: #666;
+}
+
+.card .button {
+    display: block;
+    margin: 10px auto;
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
     color: #fff;
     background-color: #007BFF;
     border: none;
     border-radius: 5px;
-    text-align: center;
     text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease;
 }
 
-.button:hover {
+.card .button:hover {
     background-color: #0056b3;
 }
 
-/* Изображения */
-img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+/* ====== Стили для карточек на мобильных устройствах ====== */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
+
+    .card img {
+        height: 150px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+        margin: 10px;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+        margin: 10px;
+    }
+
+    .card .button {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
 }
 
-/* Заголовки */
-h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 1rem 0;
-    line-height: 1.2;
-}
-
-h1 {
-    font-size: clamp(1.5rem, 5vw, 3rem);
-    color: #222;
-}
-
-h2 {
-    font-size: clamp(1.2rem, 4vw, 2.5rem);
-    color: #333;
-}
-
-/* Ссылки */
-a {
-    color: #007BFF;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-a:hover {
-    color: #0056b3;
-}
-
-/* Блоки */
-.box {
+/* ====== Прочие стили (опционально) ====== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Скрытие элементов на мобильных */
-.sidebar {
-    display: none;
-}
-
-/* ==============================
-   Стили для планшетов и больших экранов
-   ============================== */
-@media (min-width: 768px) {
-    body {
-        font-size: 18px;
-    }
-
-    .container {
-        padding: 20px;
-    }
-
-    .sidebar {
-        display: block;
-        width: 25%;
-        float: left;
-        margin-right: 5%;
-    }
-
-    .main-content {
-        width: 70%;
-        float: left;
-    }
-
-    .button {
-        font-size: 1.1rem;
-        padding: 12px 24px;
-    }
-}
-
-@media (min-width: 1024px) {
-    h1 {
-        font-size: 3rem;
-    }
-
-    h2 {
-        font-size: 2.5rem;
-    }
-
-    .container {
-        max-width: 1200px;
-    }
-
-    .box {
-        padding: 30px;
-    }
-}
-
-/* ==============================
-   Стили для высоких разрешений
-   ============================== */
-@media (min-width: 1440px) {
-    body {
-        font-size: 20px;
-    }
-
-    h1 {
-        font-size: 3.5rem;
-    }
-
-    h2 {
-        font-size: 3rem;
-    }
-
-    .button {
-        font-size: 1.2rem;
-    }
 }
