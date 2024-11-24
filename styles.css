@@ -1,0 +1,221 @@
+/* Сброс стилей и настройка box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основной стиль страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff; /* Белый цвет текста */
+    background-color: #121212; /* Черный фон для остальной части страницы */
+    line-height: 1.5;
+}
+
+/* Ссылки */
+a {
+    text-decoration: none;
+    color: inherit; /* Ссылки наследуют цвет родительского элемента */
+}
+
+/* Шапка сайта с прозрачным фоном */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0); /* Прозрачный фон */
+    z-index: 1000;
+}
+
+/* Логотип */
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+}
+
+.logo-img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+/* Стили для навигационных ссылок */
+.navbar a {
+    margin: 0 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #f39c12; /* Золотистый цвет при наведении */
+}
+
+/* Герой-блок (основной экран) */
+.hero {
+    height: 100vh; /* Вся высота экрана */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5) url('header_geography.jpg') no-repeat center center/cover; /* Фон только в hero */
+    background-size: cover; /* Растягиваем фон */
+}
+
+/* Контент в hero-блоке */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Текст поверх фона */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #FF6347; /* Ярко-красный */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #f5f5f5;
+}
+
+.scroll-down {
+    font-size: 1rem;
+    color: #f39c12; /* Золотистый цвет */
+    font-weight: bold;
+    border: 2px solid #f39c12;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.scroll-down:hover {
+    background: #f39c12;
+    color: #000;
+}
+
+/* Основной контент сайта */
+.book-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.book-container {
+    background: #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 48%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-container:hover {
+    transform: scale(1.05); /* Эффект увеличения при наведении */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Усиленная тень */
+}
+
+.book-container img {
+    width: 75%; /* Уменьшаем обложки книг в 2 раза */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.book-container h3 {
+    font-size: 1.8rem;
+    color: #FF6347;
+    margin-bottom: 10px;
+}
+
+.book-container p {
+    font-size: 1rem;
+    color: #D3D3D3;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    background-color: #FF6347;
+    color: #FFF;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.buy-button:hover {
+    background-color: #FF4500;
+    transform: scale(1.05);
+}
+
+.buy-button:active {
+    background-color: #FF3300;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 15px 10px;
+    background: #121212;
+    border-top: 2px solid #660000; /* Красная граница сверху */
+    font-size: 0.9rem;
+    color: #B0B0B0;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .navbar a {
+        margin: 5px 0;
+    }
+
+    .book-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-container {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+}
