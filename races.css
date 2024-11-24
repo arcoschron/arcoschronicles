@@ -1,184 +1,193 @@
-/* Сброс стилей и настройка box-sizing */
-* {
+/* ====== Основные стили ====== */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Основной стиль страницы */
-body {
-    font-family: 'Arial', sans-serif;
-    color: #fff; /* Белый цвет текста */
-    background-color: #121212; /* Черный фон для остальной части страницы */
-    line-height: 1.5;
-}
-
-/* Ссылки */
-a {
-    text-decoration: none;
-    color: inherit; /* Ссылки наследуют цвет родительского элемента */
-}
-
-/* Шапка сайта с прозрачным фоном */
-.header {
+/* ====== Стили меню ====== */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0); /* Прозрачный фон */
-    z-index: 1000;
-}
-
-/* Логотип */
-.logo {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 20px;
+    background-color: #222;
     color: #fff;
+    padding: 10px 20px;
 }
 
-.logo-img {
-    width: 30px;
-    margin-right: 10px;
-}
-
-/* Стили для навигационных ссылок */
 .navbar a {
-    margin: 0 15px;
-    font-weight: 600;
     color: #fff;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    padding: 10px 15px;
 }
 
 .navbar a:hover {
-    color: #f39c12; /* Золотистый цвет при наведении */
+    background-color: #444;
+    border-radius: 5px;
 }
 
-/* Герой-блок (основной экран) */
-.hero {
-    height: 100vh; /* Вся высота экрана */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5) url('header_geography.jpg') no-repeat center center/cover; /* Фон только в hero */
-    background-size: cover; /* Растягиваем фон */
-}
-
-/* Контент в hero-блоке */
-.hero-content {
-    position: relative;
-    z-index: 2; /* Текст поверх фона */
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #FF6347; /* Ярко-красный */
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #f5f5f5;
-}
-
-/* Секция с расами */
-.race-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 40px 20px;
-    margin-top: 100px; /* Чтобы разделить с шапкой */
-}
-
-.race-container {
-    background: #333;
-    border-radius: 15px;
-    padding: 20px;
-    width: 30%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 20px;
-}
-
-.race-container:hover {
-    transform: scale(1.05); /* Эффект увеличения при наведении */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Усиленная тень */
-}
-
-.race-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.race-description h3 {
-    font-size: 1.8rem;
-    color: #FF6347; /* Ярко-красный */
-    margin-bottom: 10px;
-}
-
-.race-description p {
-    font-size: 1rem;
-    color: #D3D3D3;
-}
-
-/* Подвал */
-footer {
-    text-align: center;
-    padding: 15px 10px;
-    background: #121212;
-    border-top: 2px solid #660000; /* Красная граница сверху */
-    font-size: 0.9rem;
-    color: #B0B0B0;
-}
-
-/* Адаптивный дизайн */
+/* ====== Мобильное меню ====== */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .header {
+    .navbar {
         flex-direction: column;
         align-items: flex-start;
-        padding: 20px;
     }
 
     .navbar a {
-        margin: 5px 0;
-    }
-
-    .race-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .race-container {
-        width: 80%;
-        margin-bottom: 20px;
+        padding: 10px;
+        width: 100%;
+        text-align: left;
     }
 }
 
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.8rem;
+/* ====== Стили контейнеров карточек ====== */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* ====== Стили карточек ====== */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #222;
+}
+
+.card p {
+    font-size: 1rem;
+    padding: 0 15px;
+    color: #555;
+}
+
+.card .button {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 15px auto;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.card .button:hover {
+    background-color: #0056b3;
+}
+
+/* ====== Мобильные стили карточек ====== */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column; /* Располагаем карточки вертикально */
+        gap: 10px;
     }
 
-    .hero-content p {
-        font-size: 0.9rem;
+    .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
+
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    .card .button {
+        display: block;
+        margin: 10px auto;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* ====== Стили бестиария ====== */
+.beastiary-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.beastiary-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    margin: 10px;
+    text-align: left;
+}
+
+.beastiary-card img {
+    width: 100%;
+    height: auto;
+}
+
+.beastiary-card h3 {
+    font-size: 1.5rem;
+    margin: 10px;
+    color: #333;
+}
+
+.beastiary-card p {
+    font-size: 1rem;
+    padding: 0 15px 15px;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .beastiary-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* ====== Кнопки и интерактивные элементы ====== */
+.button {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
 }
